@@ -1,0 +1,32 @@
+".container[platform=ios]": {
+	backgroundColor:"white"
+}
+
+"Label": {
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE,
+	color: "#000"
+}
+
+"#label": {
+	font: {
+		fontSize: 12
+	}
+}
+".container": {
+	height: Titanium.UI.FILL	
+}
+"#datetoday": {
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+	center: '50%',
+	font: {
+        fontFamily:'Helvetica',
+        fontSize: '12dp',
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        color: '#999'
+    }	
+	
+	
+}
+

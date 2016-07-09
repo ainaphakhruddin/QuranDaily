@@ -1,0 +1,17 @@
+<Alloy>
+	<Collection src="goal"/>
+	<Window id="mainwindow" class="container">
+				<TableView dataCollection="goal" id="datetoday" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" backgroundColor="A9F5D0">
+					<TableViewRow height="33%">
+						<Label text="{date}"></Label>
+					</TableViewRow>
+					<TableViewRow height="33%">
+						<Label text="{start}"></Label>
+					</TableViewRow>
+					<TableViewRow height="33%">
+						<Label text="{end}"></Label>
+					</TableViewRow>
+				</TableView>
+					<!--<Label id="swipeUp" onSwipe="swipeUp">Progress</Label>-->
+	</Window>
+</Alloy>
