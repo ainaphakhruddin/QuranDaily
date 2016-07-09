@@ -41,6 +41,7 @@ if(OS_MOBILEWEB){
 }
 */
 
+
 $.mainwindow.addEventListener("close", function(){
 	Alloy.Collections.goal.deleteAll();
 });
