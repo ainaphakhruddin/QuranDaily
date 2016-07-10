@@ -9,7 +9,7 @@ function swipeDown(p){
 			var direction = p.direction;
 			alert("direction is: "+direction);
 			//...
-			var progressController = Alloy.createController('index').getView();
-			$.progress.open(indexController);
+			var indexController = Alloy.createController('index').getView();
+			$.progress.open(indexController, 'fast');
 		}
 };
