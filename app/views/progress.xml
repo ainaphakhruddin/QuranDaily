@@ -1,0 +1,16 @@
+<Alloy>
+	<View class="container">
+    <Window id="progress" backgroundColor="white">
+        <ProgressBar id="khatam" />
+        <Label>Progress</Label>
+        <View>
+        			<Button id="openmainfromprogress" 
+        			size="Ti.UI.Fill"
+        			height="1080p"
+        			width="640p" 
+        			onSwipe="swipeDown"
+        			></Button>
+        </View> 
+    </Window>
+	</View>
+</Alloy>

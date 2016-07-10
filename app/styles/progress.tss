@@ -1,0 +1,4 @@
+
+".container" : {
+  height: Titanium.UI.FILL	
+}

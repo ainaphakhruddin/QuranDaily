@@ -32,21 +32,22 @@ exports.definition = {
 				return Backbone.Collection.prototype.fetch.call(this, options);
 			}
 			*/
-			deleteAll : function() {
+	deleteAll : function() {
  
-				var collection = this;
+		var collection = this;
 				 
-				var sql = "DELETE FROM " + collection.config.adapter.collection_name;
-				db = Ti.Database.open(collection.config.adapter.db_name);
-				db.execute(sql);
-				db.close();
+		var sql = "DELETE FROM " + collection.config.adapter.collection_name;
+		db = Ti.Database.open(collection.config.adapter.db_name);
+		db.execute(sql);
+		db.close();
 				 
-				collection.trigger('sync');
-				Alloy.Globals.Log("model: DELETE FROM " + collection.config.adapter.collection_name);
+		collection.trigger('sync');
+		console.log
+		("model: DELETE FROM " + collection.config.adapter.collection_name);
 				 
-				}
+		}
 			
-		});
+	});
 
 		return Collection;
 	}
