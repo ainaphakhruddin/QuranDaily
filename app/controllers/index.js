@@ -40,11 +40,31 @@ function doClean(e){
 
 
 /* Below is the function used to create swipe functions to enter new windows*/
+function swipeAnywhere(e){
+if (e.direction =="right") {var settingsController = Alloy.createController('settings').getView();
+    		$.navWindow.open(settingsController);}
+else if (e.direction == "up") {var progressController = Alloy.createController('progress').getView();
+			$.navWindow.open(progressController);}
+else if (e.direction =='left') {var friendsController = Alloy.createController('friends').getView();
+		$.navWindow.open(friendsController);}
+};
 
-function swipeRight(s){
-	console.log("index.js: check swipeRight stuff: "+JSON.stringify(s));
-		if (s.direction == "right") {
-			var direction = s.direction;
+function swipeUp(e){
+		console.log("index.js: check swipeUp stuff: "+JSON.stringify(e));
+		if (e.direction == "up") {
+			var direction = e.direction;
+			alert("direction is: "+direction);
+			//...
+			var progressController = Alloy.createController('progress').getView();
+			$.navWindow.open(progressController);
+		}
+		
+		
+};
+function swipeRight(e){
+	console.log("index.js: check swipeRight stuff: "+JSON.stringify(e));
+		if (e.direction == "right") {
+			var direction = e.direction;
 			alert("direction is: "+direction);
 			//...
 			var settingsController = Alloy.createController('settings').getView();
@@ -53,17 +73,15 @@ function swipeRight(s){
 };
 
 
-function swipeUp(p){
-		console.log("index.js: check swipeUp stuff: "+JSON.stringify(p));
-		if (p.direction == "up") {
-			var direction = p.direction;
-			alert("direction is: "+direction);
-			//...
-			var progressController = Alloy.createController('progress').getView();
-			$.navWindow.open(progressController);
-		}
-		
-		
+function swipeLeft(e){
+	console.log("index.js: check swipeLeft stuff:" +JSON.stringify(e));
+	if (e.direction == "left") {
+		var direction = e.direction;
+		alert("direction is: "+direction);
+		//...
+		var friendsController = Alloy.createController('friends').getView();
+		$.navWindow.open(friendsController);
+	}
 };
 
 

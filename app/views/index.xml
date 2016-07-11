@@ -4,35 +4,29 @@
 		<NavigationWindow id="navWindow" platform="ios">
 		
         <Window id="win" backgroundColor="A9F5D0">
-        	<View dataCollection="goal" id="datetoday" textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" backgroundColor="A9F5D0" height="149" top="0">
+        	<View dataCollection="goal" 
+        		id="datetoday" 
+        		textAlign="Ti.UI.TEXT_ALIGNMENT_CENTER" 
+        		backgroundColor="A9F5D0" 
+        		height="1080p" 
+        		width="640p" 
+        		onSwipe="swipeAnywhere"
+        		top="0">
         		<!--HeaderView>
 					<Button id="cleanbutton" right="30%" title="clean" onClick="doClean">clean</Button>
 				</HeaderView--><!--used to clean multiple tableview rows but don'tneed anymore since we use labels-->
 				
-						<Label id="datelabel" text="7/10/2016" top="10%"></Label>
-						<Label text="Read from:" top="25%"></Label>
-						<Label id="startlabel" text="kahf 1" top="35%"></Label>
-						<Label text="to:" top="45%"></Label>
-						<Label id="endlabel" text="Kahf 10" top=" 55%"></Label>
+						<Label id="datelabel" text="7/10/2016" top="5%"></Label>
+						<Label text="Read from:" top="15%"></Label>
+						<Label id="startlabel" text="kahf 1" top="25%"></Label>
+						<Label text="to:" top="30%"></Label>
+						<Label id="endlabel" text="Kahf 10" top=" 35%"></Label>
 
 			</View>
-			<View top="150" height="149">
-        		<Button id="opensettings" 
-        		size="Ti.UI.Fill"
-        		height="1080p"
-        		width="640p" 
-        		onSwipe="swipeRight"></Button>
-        	</View> 
-        	<View top="300" height="Ti.UI.Size">
-        		<Button id="openprogress" 
-        		size="Ti.UI.Fill"
-        		height="1080p"
-        		width="640p"
-        		onSwipe="swipeUp"></Button>
-        	</View>
-       
-
-  		</Window>
+			<!--View id="swipeAnywhere" top="0" height="1080p" width="640p" onSwipe="swipeAnywhere">
+        		
+        	</View--> 
+        </Window>
 		</NavigationWindow>
 	
 </Alloy>

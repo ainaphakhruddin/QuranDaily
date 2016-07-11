@@ -4,7 +4,7 @@ console.log("This is child widow progress.js");
  $.progress.open();
  
 function swipeDown(p){
-		console.log("index.js: check swipeDown stuff: "+JSON.stringify(p));
+		console.log("progress.js: check swipeDown stuff: "+JSON.stringify(p));
 		if (p.direction == "down") {
 			var direction = p.direction;
 			alert("direction is: "+direction);
