@@ -1,6 +1,6 @@
 <Alloy>
+	<Window id="progress" backgroundColor="white">
 	<View class="container">
-    <Window id="progress" backgroundColor="white">
         <ProgressBar id="khatam" />
         <Label>Progress</Label>
         <View>
@@ -11,6 +11,6 @@
         			onSwipe="swipeDown"
         			></Button>
         </View> 
-    </Window>
 	</View>
+	</Window>
 </Alloy>

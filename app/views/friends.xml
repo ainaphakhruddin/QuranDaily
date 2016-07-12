@@ -1,6 +1,6 @@
 <Alloy>
+	<Window id="friends" backgroundColor="white">
 	<View class="container">
-		<Window id="friends" backgroundColor="white">
 			<Label>Friends</Label>
        		<View>
         			<Button id="openmainfromfriends" 
@@ -10,7 +10,6 @@
         			onSwipe="swipeRight"
         			></Button>
         	</View> 
-		</Window>
-		
 	</View>
+	</Window>
 </Alloy>
