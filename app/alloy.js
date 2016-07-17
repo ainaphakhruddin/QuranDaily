@@ -45,4 +45,41 @@ ACS.Users.login({
 });
 
 })();
+//Global Quran API c024218be9ce6137e0b3aec6189fc788
+Alloy.Globals.getMaster = function() {
+	var url="http://api.globalquran.com/page/601/quran-simple?key=c024218be9ce6137e0b3aec6189fc788";
+	var xhr = Ti.Network.createHTTPClient({
+		    onload: function(ee) {
+			    	json = JSON.parse(this.responseText);
+			    	console.log("Alloy.Globals.updateType : this.responseText: "+this.responseText);
+			    	console.log("Alloy.Globals.updateType : json: "+json);
+			    	var out = '{ "poi" : ['+"\n";
+			    	/*
+			    	for (var i=0; i < json.feed.entry.length; i++) {
+			    		var col1 = json.feed.entry[i].title.$t.trim();
+						var col2= json.feed.entry[i].content.$t.split(',')[0].split(':')[1].trim() || "none";
+						if(col1 && col2){
+							eval("Titanium.App.Properties.setString(\""+col1+"\",col2)");
+							if(col1=="freeuser"){Titanium.App.Properties.setString("freeuser",col2); };
+							if(col1=="paiduser"){Titanium.App.Properties.setString("paiduser",col2);};
+							if(col1=="paidbasic"){Titanium.App.Properties.setString("paidbasic",col2);};
+							if(col1=="paidpremium"){Titanium.App.Properties.setString("paidpremium",col2);};
+							if(col1=="paidunlimited"){Titanium.App.Properties.setString("paidunlimited",col2);};
+							console.log("alloy::getMaster:: Titanium.App.Properties.getString("+col1+"): "+eval("Titanium.App.Properties.getString(col1)"));
+							//console.log("alloy::getMaster:: Titanium.App.Properties.getString(publicrepo): "+Titanium.App.Properties.getString("publicrepo"));						
+							}						
+						if ( i == (json.feed.entry.length - 1)) {
+							out += '{ "col1" : "'+col1+'" , "col2" : "'+col2+'" }]}'+"\n";
+						} else {
+							out += '{ "col1" : "'+col1+'" , "col2" : "'+col2+'" },'+"\n";
+						}
+			    	}*/
+//					Alloy.Globals.writeFile(out,"master.json");
+//					var json = out;		    
+			}	
+		});	
+		console.log("alloy::getMaster:url :"+url);		
+		xhr.open("GET", url);
+		xhr.send();
+};
 

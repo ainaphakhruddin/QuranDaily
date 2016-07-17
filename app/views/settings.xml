@@ -1,11 +1,12 @@
 <Alloy>
-	<NavigationWindow title="settings">
+	<Collection src="goal"/>
+	<NavigationWindow title="settings" backgroundColor="#BCE2B3">
 	<Window id="settings" class="container" backgroundColor="#BCE2B3" title="settings">
 		<View onSwipe="swipeLeft">
 		
         			<TableView>
         				<TableViewRow title="login/logout"></TableViewRow>
-        				<TableViewRow title="edit goal"></TableViewRow>
+        				<TableViewRow id="openeditgoal" title="edit goal" onClick="openEditGoal"></TableViewRow>
         				<TableViewRow title="notification settings"></TableViewRow>
         				<TableViewRow title="contact us"></TableViewRow>
         				<TableViewRow title="about us"></TableViewRow>

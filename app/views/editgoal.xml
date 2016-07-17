@@ -1,0 +1,29 @@
+<Alloy>
+	<NavigationWindow backgroundColor="#BCE2B3">
+		<Window title="editgoal">
+			
+				<!--Picker id="pickertosetstart" selectionIndicator="true" useSpinner="true" top="30%">
+					<PickerColumn id="Surah">
+						<PickerRow title="Al-Fatihah"></PickerRow>
+						<PickerRow title="Albaqarah"></PickerRow>
+					</PickerColumn>
+					<PickerColumn id="Ayat">
+						<PickerRow title="one"></PickerRow>
+						<PickerRow title="two"></PickerRow> 
+					</PickerColumn>
+				</Picker><!--App crashes fix this follow Ti manual>
+				<Picker id="pickertosetend" selectionIndicator="true" useSpinner="true" top="50%">
+					<PickerColumn id="Surah">
+						<PickerRow title="Al-Fatihah"></PickerRow>
+						<PickerRow title="An-nas"></PickerRow>
+					</PickerColumn>
+					<PickerColumn id="Ayat">
+						<PickerRow title="one"></PickerRow>
+						<PickerRow title="two"></PickerRow> 
+					</PickerColumn>
+				</Picker-->
+			
+		</Window>
+	
+	</NavigationWindow>
+</Alloy>
