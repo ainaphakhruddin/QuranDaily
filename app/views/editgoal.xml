@@ -1,28 +1,16 @@
 <Alloy>
 	<NavigationWindow backgroundColor="#BCE2B3">
-		<Window title="editgoal">
-			
-				<!--Picker id="pickertosetstart" selectionIndicator="true" useSpinner="true" top="30%">
-					<PickerColumn id="Surah">
-						<PickerRow title="Al-Fatihah"></PickerRow>
-						<PickerRow title="Albaqarah"></PickerRow>
-					</PickerColumn>
-					<PickerColumn id="Ayat">
-						<PickerRow title="one"></PickerRow>
-						<PickerRow title="two"></PickerRow> 
-					</PickerColumn>
-				</Picker><!--App crashes fix this follow Ti manual>
-				<Picker id="pickertosetend" selectionIndicator="true" useSpinner="true" top="50%">
-					<PickerColumn id="Surah">
-						<PickerRow title="Al-Fatihah"></PickerRow>
-						<PickerRow title="An-nas"></PickerRow>
-					</PickerColumn>
-					<PickerColumn id="Ayat">
-						<PickerRow title="one"></PickerRow>
-						<PickerRow title="two"></PickerRow> 
-					</PickerColumn>
-				</Picker-->
-			
+		<Window title="editgoal">		
+			<Button onClick="goBack" top="-10" >Back</Button>
+			<Label id="surahlabel" text="Surah: " left="20" top="10"/>
+			<Label id="surahvalue" left="100" top="10"/>
+			<Label id="ayahlabel" text="Ayah #: " left="20" top="150"/>
+			<Label id="ayahvalue" left="100" top="30"/>
+			<Label id="pagelabel" text="Page: " left="20" top="350"/>
+			<Label id="pagevalue"left="100" top="120"/>
+			<Picker id="ayahpicker" top="200" height="75" ></Picker>
+			<Picker id="surahpicker" top="40" height="75"></Picker>
+			<Picker id="pagepicker" top="400"></Picker>
 		</Window>
 	
 	</NavigationWindow>
