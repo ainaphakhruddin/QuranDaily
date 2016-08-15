@@ -1,29 +1,14 @@
 // Arguments passed into this controller can be accessed via the `$.args` object directly or:
 var args = $.args;
- console.log("This is child widow editgoal.js");
+ console.log("This is child window editgoal.js");
  $.editgoal.open();
  
-function goBack(s){
-	console.log("settings.js: check goback: "+JSON.stringify(s));
-	var settingsController = Alloy.createController('settings').getView();
-	$.editgoal.open(settingsController);
-}
-/*function pickerBlur(b){
-	console.log("see if picker blurs:" +JSON.stringify(b));
-	var surahpicker = Alloy.createPicker('surahpicker').show();
-	$.surahpicker.blur();
-}*/// Didn't work
- 
-var goalWin = Ti.UI.createWindow({
-	exitOnClose: true,
-	layout: 'vertical'
+ var win = Ti.UI.createWindow({
+  backgroundColor: 'white',
+  exitOnClose: true,
+  fullscreen: false,
+  title: 'Use picker to make selection'
 });
-
-var tableView = Titanium.UI.createTableView();
-var pickerView = Titanium.UI.createView();
-
-var setGoal = Alloy.Collections.editgoal;
-
 var surah =  [{
  	"name": "al-Fatihah",
  	"count": "7"
@@ -368,10 +353,8 @@ var surah =  [{
  	"count": "6"
  }];
 
-//var Page = ['1','2'];
-
 var Page = [
-	["al-Fatihah","1"],
+	["1","1"],
 	["2","1"],
 	["2","6"],
 	["2","17"],
@@ -978,9 +961,204 @@ var Page = [
 	["115","1"]
 ];
 
+//var fruit = [ 'Bananas', 'Grapes', 'Blueberries', 'Strawberries' ];
+//var color = [ 'blue', 'red', 'yellow', 'white' ];
+
+var column1 = Ti.UI.createPickerColumn();
+
+for(var i=0, ilen=surah.length; i<ilen; i++){
+  var row = Ti.UI.createPickerRow({
+    title: surah[i].name
+    });
+  column1.addRow(row);
+}
+
+/*var column2 = Ti.UI.createPickerColumn();
+
+for(var i=0, ilen=Page.length; i<ilen; i++){
+  var row = Ti.UI.createPickerRow({
+    title: Page[i][1]
+  });
+  column2.addRow(row);
+};*/
+
+var surahpicker = Ti.UI.createPicker({
+  columns: [column1],
+  selectionIndicator: true,
+  useSpinner: true, // required in order to use multi-column pickers with Android
+  top:37.5,
+  height: 100,
+  width: 200,
+  right: 5
+});
 
 
 
+var ayahpicker = Ti.UI.createPicker({
+	columns: [column2],
+  	selectionIndicator: true,
+ 	useSpinner: true, // required in order to use multi-column pickers with Android
+ 	top:100,
+  	height: 100,
+  	width: 200,
+  	right: 5
+});
+	
+
+
+
+surahpicker.addEventListener("change",function(e){
+	console.log("surahChange: JSON.stringify(e): "+JSON.stringify(e));
+	var surahname = e.row.title;
+	surahvalue.text = surahname;
+	
+	// set for ayah picker	
+	for(j=0;j<surah.length;j++){
+		if(surah[j].name == surahvalue.text){ var count = surah[j].count;}
+		console.log("surahChange: count: "+count);	
+	var ayahPickerColumn = Ti.UI.createPickerColumn();
+		if (count != "0") { //!="0" means count is not equal to zero
+		for(var i=1; i<=count ; i++){
+		  	var rowAyahNumber = Ti.UI.createPickerRow({
+		   		title: i
+		   		 ///""\""+i+"\"" 
+		   	});	
+	ayahpicker.add(ayahPickerColumn);
+	ayahPickerColumn.addRow(rowAyahNumber);
+	ayahpicker.show();
+	
+/*function loadAyahPicker(k) {
+	for(j=0;j<surah.length;j++){
+		if(surah[j].name == surahvalue.text)
+		{ var count = surah[j].count;}
+		console.log("surahChange: count: "+count);	
+	var ayahPickerColumn = Ti.UI.createPickerColumn();
+		if (count != "0") { //!="0" means count is not equal to zero
+		for(var i=1; i<=count ; i++){
+		  	var rowAyahNumber = Ti.UI.createPickerRow({
+		   		title: i
+		   });
+		{ayahpicker.add(ayahPickerColumn);
+		ayahPickerColumn.addRow(rowAyahNumber);
+		};
+		ayahpicker.show();}
+	
+	/*else (ayahPickerColumn == 1);
+	{ayahPickerColumn.removeRow(rowAyahNumber);};}
+	/*{ayahpicker.add(ayahPickerColumn);
+		ayahPickerColumn.addRow(rowAyahNumber);
+		};
+		ayahpicker.show();*/
+		
+		
+	//ayahlabeladdpicker = "1";
+
+	/*if(rowAyahNumber == 1) {ayahpicker.remove(column2);
+		};
+	ayahpicker.hide();
+	rowAyahNumber = 0;
+		  	//rowAyahNumber.hide()*/
+		 
+		 	}}}});
+
+		 
+	
+	ayahpicker.addEventListener("change", function(a){
+	console.log("ayahChange: JSON.stringify(a): "+ JSON.stringify(a));
+	ayahvalue.text = a.row.title;
+});
+	
+
+var ayahpicker = Ti.UI.createPicker({
+			columns: [column2],
+  			selectionIndicator: true,
+ 			useSpinner: true, // required in order to use multi-column pickers with Android
+ 			top:100,
+  			height: 100,
+  			width: 200,
+  			right: 5
+		});
+
+var ayahvalue = Ti.UI.createLabel({
+	text: "Ayah: ",
+	top: 250,
+	left: Ti.UI.Center
+});
+	
+	
+/*for(j=0;j<surah.length;j++){
+	if(surah[j].name == surahname){ var count = surah[j].count}};	
+	console.log("surahChange: count: "+count);*/
+
+
+
+/*surahpicker.addEventListener("change",function(e){
+	console.log("surahChange: JSON.stringify(e): "+JSON.stringify(e));
+	var surahname = e.row.title;
+	surahvalue.text = surahname;*/
+/*function pickerDefaults(obj){
+  // on iOS, must be after picker has been rendered
+  surahpicker.setSelectedRow(0, true);
+  surahpicker.setSelectedRow(0, true);
+}*/
+
+var surahvalue = Ti.UI.createLabel({
+	text: "Surah:",
+	top: 250,
+	left: 85
+});
+
+
+
+	
+win.add(surahpicker);
+win.add(ayahpicker);
+win.add(surahvalue);
+win.add(ayahvalue);
+
+
+var isAndroid = Ti.Platform.osname === 'android';
+
+/*if(isAndroid){
+  pickerDefaults(surahpicker);
+}*/
+
+win.open();
+
+if(!isAndroid){
+  setTimeout(function(){
+    /*pickerDefaults(surahpicker);*/
+  }, 1500);
+}
+
+
+
+function goBack(s){
+	console.log("settings.js: check goback: "+JSON.stringify(s));
+	var settingsController = Alloy.createController('settings').getView();
+	$.editgoal.open(settingsController);
+}
+/*function pickerBlur(b){
+	console.log("see if picker blurs:" +JSON.stringify(b));
+	var surahpicker = Alloy.createPicker('surahpicker').show();
+	$.surahpicker.blur();
+}*/// Didn't work
+ 
+/*var goalWin = Ti.UI.createWindow({
+	exitOnClose: true,
+	layout: 'vertical'
+});
+
+var tableView = Titanium.UI.createTableView();
+var pickerView = Titanium.UI.createView();
+
+var setGoal = Alloy.Collections.editgoal;
+*/
+
+//var Page = ['1','2'];
+
+
+/*
 var column1 = Ti.UI.createPickerColumn();
 for (var i=0; i < surah.length; i++){
   var rowSurah = Ti.UI.createPickerRow({
@@ -1039,9 +1217,9 @@ $.surahpicker.addEventListener("change",function(e){
 
 });
 
-/*$.surahpicker.on("focus", function focus () {
+$.surahpicker.on("focus", function focus () {
   surahpicker.show();
-});*/
+});
 $.ayahpicker.show();
 $.pagepicker.hide();
 
@@ -1060,15 +1238,16 @@ $.ayahlabel.addEventListener("click", function(a){
 		};
 	$.ayahpicker.show();
 	ayahlabeladdpicker ="1";
-	
-	if(ayahlabeladdpicker == "1"){$.ayahpicker.remove(column2);
+
+	if(ayahlabeladdpicker == "1") {$.ayahpicker.remove(column2);
 		};
 	$.ayahpicker.hide();
+	//ayahlabeladdpicker ="0";
 	
 });
 
 
-
+*/
 
 ////GoalPicker.add([column1, column2]);
 //goalWin.add(GoalPicker);

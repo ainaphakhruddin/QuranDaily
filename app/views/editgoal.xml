@@ -1,16 +1,16 @@
 <Alloy>
 	<NavigationWindow backgroundColor="#BCE2B3">
 		<Window title="editgoal">		
-			<Button onClick="goBack" top="-10" >Back</Button>
+			<!--Button onClick="goBack" top="-10" >Back</Button>
 			<Label id="surahlabel" text="Surah: " left="20" top="10"/>
 			<Label id="surahvalue" left="100" top="10"/>
 			<Label id="ayahlabel" text="Ayah #: " left="20" top="150"/>
 			<Label id="ayahvalue" left="100" top="30"/>
 			<Label id="pagelabel" text="Page: " left="20" top="350"/>
 			<Label id="pagevalue"left="100" top="120"/>
-			<Picker id="ayahpicker" top="200" height="75" ></Picker>
+			<Picker id="ayahpicker" top="200" height="75"></Picker>
 			<Picker id="surahpicker" top="40" height="75"></Picker>
-			<Picker id="pagepicker" top="400"></Picker>
+			<Picker id="pagepicker" top="400"></Picker-->
 		</Window>
 	
 	</NavigationWindow>
