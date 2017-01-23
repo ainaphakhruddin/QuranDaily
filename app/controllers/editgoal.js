@@ -993,7 +993,7 @@ var surahpicker = Ti.UI.createPicker({
 });
 
 
-
+/*
 var ayahpicker = Ti.UI.createPicker({
 	columns: [column2],
   	selectionIndicator: true,
@@ -1004,7 +1004,7 @@ var ayahpicker = Ti.UI.createPicker({
   	right: 5
 });
 	
-
+*/
 
 
 surahpicker.addEventListener("change",function(e){
@@ -1015,7 +1015,16 @@ surahpicker.addEventListener("change",function(e){
 	// set for ayah picker	
 	for(j=0;j<surah.length;j++){
 		if(surah[j].name == surahvalue.text){ var count = surah[j].count;}
-		console.log("surahChange: count: "+count);	
+		console.log("surahChange: count: "+count);
+	var ayahpicker = Ti.UI.createPicker({
+	columns: [column2],
+  	selectionIndicator: true,
+ 	useSpinner: true, // required in order to use multi-column pickers with Android
+ 	top:100,
+  	height: 100,
+  	width: 200,
+  	right: 5
+});	
 	var ayahPickerColumn = Ti.UI.createPickerColumn();
 		if (count == "0") { //!="0" means count is not equal to zero
 		for(var i=1; i<=count ; i++){
