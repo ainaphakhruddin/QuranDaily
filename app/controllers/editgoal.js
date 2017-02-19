@@ -355,6 +355,13 @@ var surah =  [{
 
 var Page = [
 	["1","1"],
+	["1", "6", "17", "25", "30", "38", "49", "58",
+	"62", "70", "77", "84", "89", "94", "102", "106", 
+	"113", "120", "127", "135", "142", "146", "154", "164", 
+	"170", "177", "182", "187", "191", "197", "203", "211", 
+	"216", "220", "225", "231", "234", "238", "246", "249",
+	"253", "257", "260", "265", "270", "275", "282", "283"
+	],
 	["2","1"],
 	["2","6"],
 	["2","17"],
@@ -961,9 +968,6 @@ var Page = [
 	["115","1"]
 ];
 
-//var fruit = [ 'Bananas', 'Grapes', 'Blueberries', 'Strawberries' ];
-//var color = [ 'blue', 'red', 'yellow', 'white' ];
-
 var column1 = Ti.UI.createPickerColumn();
 
 for(var i=0, ilen=surah.length; i<ilen; i++){
@@ -971,16 +975,16 @@ for(var i=0, ilen=surah.length; i<ilen; i++){
     title: surah[i].name
     });
   column1.addRow(row);
-}
+};
 
 var column2 = Ti.UI.createPickerColumn();
 
-for(var i=0, ilen=Page.length; i<ilen; i++){
+/*for(var i=0, ilen=Page.length; i<ilen; i++){
   var row = Ti.UI.createPickerRow({
     title: Page[i][1]
   });
   column2.addRow(row);
-};
+};*/
 
 var surahpicker = Ti.UI.createPicker({
   columns: [column1],
@@ -992,32 +996,8 @@ var surahpicker = Ti.UI.createPicker({
   right: 5
 });
 
-
-/*
 var ayahpicker = Ti.UI.createPicker({
-	columns: [column2],
-  	selectionIndicator: true,
- 	useSpinner: true, // required in order to use multi-column pickers with Android
- 	top:100,
-  	height: 100,
-  	width: 200,
-  	right: 5
-});
-	
-*/
-
-
-surahpicker.addEventListener("change",function(e){
-	console.log("surahChange: JSON.stringify(e): "+JSON.stringify(e));
-	var surahname = e.row.title;
-	surahvalue.text = surahname;
-	
-	// set for ayah picker	
-	for(j=0;j<surah.length;j++){
-		if(surah[j].name == surahvalue.text){ var count = surah[j].count;}
-		console.log("surahChange: count: "+count);
-	var ayahpicker = Ti.UI.createPicker({
-	columns: [column2],
+	//columns: [column2],
   	selectionIndicator: true,
  	useSpinner: true, // required in order to use multi-column pickers with Android
  	top:100,
@@ -1025,39 +1005,105 @@ surahpicker.addEventListener("change",function(e){
   	width: 200,
   	right: 5
 });	
-	var ayahPickerColumn = Ti.UI.createPickerColumn();
-		if (count == "0") { //!="0" means count is not equal to zero
-		for(var i=1; i<=count ; i++){
-		  	var rowAyahNumber = Ti.UI.createPickerRow({
-		   		title: i
-		   		 ///""\""+i+"\"" 
-		   	})
-		/*else () {
-			Ti.UI.popPickerRow({})
-		}*/
-		;	
-	ayahpicker.add(ayahPickerColumn);
-	ayahPickerColumn.addRow(rowAyahNumber);
-	ayahpicker.show();
+
+surahpicker.addEventListener("change",function(e){
+	console.log("surahChange: JSON.stringify(e): "+JSON.stringify(e));
+	var surahname = e.row.title;
+	surahvalue.text = surahname;
 	
-/*function loadAyahPicker(k) {
-	for(j=0;j<surah.length;j++){
+	// set for ayah picker	
+for(j=0;j<surah.length;j++){
 		if(surah[j].name == surahvalue.text)
-		{ var count = surah[j].count;}
-		console.log("surahChange: count: "+count);	
+		{var count = surah[j].count;}
+		console.log("surahChange: count: "+count);
+		};
+
+if (surahname == "al-Fatihah") {
+	console.log(Page[0][1]);
+	
+	var fatihahPickerColumn = Ti.UI.createPickerColumn();
+	for (var i = 0; i <= Page.length; i++) {
+		var fatihahAyahRow = Ti.UI.createPickerRow();
+		var fatihahLabel = Ti.UI.createLabel({
+			text: Page[0][1]
+		});
+	fatihahAyahRow.add(fatihahLabel);	
+	fatihahPickerColumn.addRow(fatihahAyahRow);
+	}
+	ayahpicker.add(fatihahPickerColumn);
+	
+} else if (surahname == "al-Baqarah") {
+	//console.log("Baqarah");
+	
+	for (var i = 0; i <= Page.length; i++) {
+		var baqarahPickerColumn = Ti.UI.createPickerColumn();
+		var baqarahAyahRow = Ti.UI.createPickerRow();
+		/****I am going to see if using a label inside of the row will allow me to display all
+		 * the verse numbers in that specific surah. The Page variable contains many arrays of
+		 * different surah and the last ayat on the pages. I want this Picker to display all ayats.*****/
+		var baqarahLabel = Ti.UI.createLabel({
+	    text: Page[1][i]
+	  });
+  	baqarahAyahRow.add(baqarahLabel);
+	baqarahPickerColumn.addRow(baqarahAyahRow);	
+	}
+	ayahpicker.add(baqarahPickerColumn);
+
+} else if (surahname == "Al-Imran") {
+	console.log(Page[4][1]  );
+};
+
+
+	
+	/*
+	
 	var ayahPickerColumn = Ti.UI.createPickerColumn();
 		if (count != "0") { //!="0" means count is not equal to zero
 		for(var i=1; i<=count ; i++){
 		  	var rowAyahNumber = Ti.UI.createPickerRow({
 		   		title: i
-		   });
+		   		 ///""\""+i+"\"" 
+		   	})};
+		   	};*/
+});
+
+
+
+ /* for (var p = 0; p < Page.length; p++) {
+        console.log();
+    
+    if (surah[i] === Page[p]) {
+    			console.log('Match: ' + surah[i].name);
+				}
+    }*/
+
+
+
+/*
+function loadAyahPicker(k) {
+	
+	var ayahPickerColumn = Ti.UI.createPickerColumn();
+		if (count != "0") { //!="0" means count is not equal to zero
+		for(var i=1; i<=count ; i++){
+		  	var rowAyahNumber = Ti.UI.createPickerRow({
+		   		title: i;})
+		   	
+		   		}}
+		else (ayahPickerColumn >= 1);
+		{ayahPickerColumn.removeRow(rowAyahNumber)};
 		{ayahpicker.add(ayahPickerColumn);
 		ayahPickerColumn.addRow(rowAyahNumber);
 		};
-		ayahpicker.show();}
+		
+	ayahpicker.show();
+		}
+		};
+				
+
+ayahpicker.addEventListener("change", function(a){
+	console.log("ayahChange: JSON.stringify(a): "+ JSON.stringify(a));
+	ayahvalue.text = a.row.title;
 	
-	/*else (ayahPickerColumn == 1);
-	{ayahPickerColumn.removeRow(rowAyahNumber);};}
 	/*{ayahpicker.add(ayahPickerColumn);
 		ayahPickerColumn.addRow(rowAyahNumber);
 		};
@@ -1066,31 +1112,18 @@ surahpicker.addEventListener("change",function(e){
 		
 	//ayahlabeladdpicker = "1";
 
-	/*if(rowAyahNumber == 1) {ayahpicker.remove(column2);
+	/*if(rowAyahNumber >= 1) {ayahpicker.remove(column2);
 		};
 	ayahpicker.hide();
 	rowAyahNumber = 0;
-		  	//rowAyahNumber.hide()*/
+		  	//rowAyahNumber.hide()
 		 
-		 	}}}});
-
-		 
+		 	});
 	
-	ayahpicker.addEventListener("change", function(a){
-	console.log("ayahChange: JSON.stringify(a): "+ JSON.stringify(a));
-	ayahvalue.text = a.row.title;
-});
-	
-/*
-var ayahpicker = Ti.UI.createPicker({
-			columns: [column2],
-  			selectionIndicator: true,
- 			useSpinner: true, // required in order to use multi-column pickers with Android
- 			top:100,
-  			height: 100,
-  			width: 200,
-  			right: 5
-	}); */
+*/
+/*ayahpicker.addEventListener("change", function(a){
+	console.log("ayahChange: JSON.strin gify(a): "+ JSON.stringify(a));
+	ayahvalue.text = a.row.title;});*/
 
 var ayahvalue = Ti.UI.createLabel({
 	text: "Ayah: ",
@@ -1098,17 +1131,15 @@ var ayahvalue = Ti.UI.createLabel({
 	left: Ti.UI.Center
 });
 	
+/*	
+for(j=0;j<surah.length;j++){
+	if(surah[j].name == surahname)
+	{ var count = surah[j].count}};	
+	console.log("surahChange: count: "+count);
+
+*/
+
 	
-/*for(j=0;j<surah.length;j++){
-	if(surah[j].name == surahname){ var count = surah[j].count}};	
-	console.log("surahChange: count: "+count);*/
-
-
-
-/*surahpicker.addEventListener("change",function(e){
-	console.log("surahChange: JSON.stringify(e): "+JSON.stringify(e));
-	var surahname = e.row.title;
-	surahvalue.text = surahname;*/
 /*function pickerDefaults(obj){
   // on iOS, must be after picker has been rendered
   surahpicker.setSelectedRow(0, true);
@@ -1142,7 +1173,7 @@ if(!isAndroid){
   setTimeout(function(){
     /*pickerDefaults(surahpicker);*/
   }, 1500);
-}
+};
 
 
 
@@ -1150,48 +1181,16 @@ function goBack(s){
 	console.log("settings.js: check goback: "+JSON.stringify(s));
 	var settingsController = Alloy.createController('settings').getView();
 	$.editgoal.open(settingsController);
-}
+};
 /*function pickerBlur(b){
 	console.log("see if picker blurs:" +JSON.stringify(b));
 	var surahpicker = Alloy.createPicker('surahpicker').show();
 	$.surahpicker.blur();
 }*/// Didn't work
  
-/*var goalWin = Ti.UI.createWindow({
-	exitOnClose: true,
-	layout: 'vertical'
-});
-
-var tableView = Titanium.UI.createTableView();
-var pickerView = Titanium.UI.createView();
-
-var setGoal = Alloy.Collections.editgoal;
-*/
-
-//var Page = ['1','2'];
 
 
 /*
-var column1 = Ti.UI.createPickerColumn();
-for (var i=0; i < surah.length; i++){
-  var rowSurah = Ti.UI.createPickerRow({
-    title: surah[i].name
-  });
-  column1.addRow(rowSurah);
-};
-
-
-
-var column2 = Ti.UI.createPickerColumn();
-for(var i=0;i < Page.length; i++){
-  var rowPage = Ti.UI.createPickerRow({
-   title: Page[i][1]  
-   //title: Page[i]
-  });
-  column2.addRow(rowPage);
-  
-};
-
 ///if ayahpicker = 1, "do nothing". if ayahpciker = 0 "launch picker"
 
 $.surahpicker.addEventListener("change",function(e){
