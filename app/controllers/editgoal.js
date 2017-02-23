@@ -355,61 +355,15 @@ var surah =  [{
 
 var Page = [
 	["1","1"],
+	//Al-Baqarah first-ayats-on-page
 	["1", "6", "17", "25", "30", "38", "49", "58",
 	"62", "70", "77", "84", "89", "94", "102", "106", 
 	"113", "120", "127", "135", "142", "146", "154", "164", 
 	"170", "177", "182", "187", "191", "197", "203", "211", 
 	"216", "220", "225", "231", "234", "238", "246", "249",
 	"253", "257", "260", "265", "270", "275", "282", "283"
-	],
-	["2","1"],
-	["2","6"],
-	["2","17"],
-	["2","25"],
-	["2","30"],
-	["2","38"],
-	["2","49"],
-	["2","58"],
-	["2","62"],
-	["2","70"],
-	["2","77"],
-	["2","84"],
-	["2","89"],
-	["2","94"],
-	["2","102"],
-	["2","106"],
-	["2","113"],
-	["2","120"],
-	["2","127"],
-	["2","135"],
-	["2","142"],
-	["2","146"],
-	["2","154"],
-	["2","164"],
-	["2","170"],
-	["2","177"],
-	["2","182"],
-	["2","187"],
-	["2","191"],
-	["2","197"],
-	["2","203"],
-	["2","211"],
-	["2","216"],
-	["2","220"],
-	["2","225"],
-	["2","231"],
-	["2","234"],
-	["2","238"],
-	["2","246"],
-	["2","249"],
-	["2","253"],
-	["2","257"],
-	["2","260"],
-	["2","265"],
-	["2","270"],
-	["2","275"],
-	["2","282"],
-	["2","283"],
+	], 
+	//Al-Imran first-ayats-on-page
 	["3","1"],
 	["3","10"],
 	["3","16"],
@@ -968,6 +922,236 @@ var Page = [
 	["115","1"]
 ];
 
+//This new variable is going to be used in the pickers, so users can start with any surah
+var ayatChoices = [
+	//0 Al-Fatihah
+  ["1"],
+  //1
+	["1", "6", "17", "25", "30", "38", "49", "58",
+	"62", "70", "77", "84", "89", "94", "102", "106", 
+	"113", "120", "127", "135", "142", "146", "154", "164", 
+	"170", "177", "182", "187", "191", "197", "203", "211", 
+	"216", "220", "225", "231", "234", "238", "246", "249",
+	"253", "257", "260", "265", "270", "275", "282", "283"
+	],
+  //2
+	//Al-Imran first-ayat-on-page
+	["1", "10", "16", "23", "30", "38", "46", "53",
+	"62", "71", "78", "84", "92", "101", "109", "116",
+	"122", "133", "141", "149", "154", "158", "166", "174",
+	"181", "187", "195"],
+  //3
+	//an-Nisa first-ayat-on-page
+	["1", "7", "12", "15", "20", "24", "27", "34", "38",
+	"45", "52", "60", "66", "75", "80", "87", "92", "95",
+	"102", "106", "114", "122", "128", "135", "141", "148",
+	"155", "163", "171", "176"],
+  //4
+	//al-Maidah first-ayat-on-page
+	["5","3", "6", "10", "14", "18", "24", "32", "37", "42",
+	"46", "51", "58", "65", "71", "77", "83", "90", "96",
+	"104", "109", "114"],
+  //5
+	//al-Anam first-ayat-on-page
+	["6","1", "9", "19", "28", "36", "45", "53", "60", "69",
+	"74", "82", "91", "95", "102", "111", "119", "125", "132",
+	"138", "143", "147", "152", "158"],
+  //6
+	//al-Araf first-ayat-on-page
+	["7", "1", "12", "23", "31", "38", "44", "52", "58", "68", "74",
+     "82", "88", "96", "105", "121", "131", "138", "144", "150", "156",
+     "160", "164", "171", "179", "188", "196"],
+  //7
+    ["8", "1", "9", "17", "26", "34", "41", "46", "53", "62", "70"],
+  //8
+    //al-Anfal
+	["9", "1", "7", "14", "21", "27", "32", "37", "41", "48", "55", 
+     "62", "69", "73", "80", "87", "94", "100", "107", "112", "118",
+     "123"],
+  //9
+	["10", "1", "7", "15", "21", "26", "34", "43", "54", "62", "71",
+     "79", "89", "98", "107"],
+  //10
+	["11", "6", "13", "20", "29", "38", "46", "54", "63", "72", "82",
+     "89", "98", "109", "118"],
+  //11
+	["12", "5", "15", "23", "31", "38", "44", "53", "64", "70", "79",
+     "87", "96", "104"],
+  //12
+	["13", "1", "6", "14", "19", "29", "35", "43"],
+  //13
+	["14","6", "11", "19", "25", "34", "43"],
+  //14
+	["15","1", "16", "32", "52", "71", "91"],
+  //15
+	["16", "7", "15", "27", "35", "43", "55", "65", "73", "80", 
+    "88", "94", "103", "111", "119"],
+  //16
+	["17", "1", "8", "18", "28", "39", "50", "59", "67", "76", "87", 
+     "97", "105"],
+  //17
+	["18", "5", "16", "21", "28", "35", "46", "54", "62", "75", "84", "98"],
+
+	["19", "1", "12", "26", "39", "52", "65", "77", "96",],
+	
+	["20", "13", "38", "52", "65", "77", "88", "99", "114", "126",],
+	
+	["21", "1", "11", "25", "36", "45", "58", "73", "82", "91", "102"],
+	
+	["22", "1", "6", "16", "24", "31", "39", "47", "56", "65", "73"],
+	
+	["23", "1", "18", "28", "43", "60", "75", "90", "105"],
+	
+	["24", "1", "11", "21", "28", "32", "37", "44", "54", "59", "62"],
+	
+	["25", "3", "12", "21", "33", "44", "56", "68"],
+	
+	["26", "1", "20", "40", "61", "84", "112", "137", "160", "184", "207"],
+	
+	["27", "1", "14", "23", "36", "45", "56", "64", "77", "89"],
+	
+	["28", "6", "14", "22", "29", "36", "44", "51", "60", "71", "78", "85"],
+	
+	["29", "7", "15", "24", "31", "39", "46", "53", "64"],
+	
+	["30", "6", "16", "25", "33", "42", "51"],
+	
+	["31", "1", "12", "20", "29"],
+	
+	["32", "1", "12", "21"],
+	
+	["33", "1", "7", "16", "23", "31", "36", "44", "51", "55", "63"],
+	
+	["34", "1", "8", "15", "23", "32", "40", "49"],
+	
+	["35", "4", "12", "19", "31", "39", "45"],
+	
+	["36", "13", "28", "41", "55", "71"],
+	
+	["37", "1", "25", "52", "77", "103", "127", "154"],
+	
+	["38", "1", "17", "27", "43", "62", "84"],
+	
+	["39", "6", "11", "22", "32", "41", "48", "57", "68", "75"],
+	
+	["40", "8", "17", "26", "34", "41", "50", "59", "67", "78"],
+	
+	["41", "1", "12", "21", "30", "39", "47"],
+	
+	["42", "1", "11", "16", "23", "32", "45", "52"],
+	
+	["43", "11", "23", "34", "48", "61", "74"],
+	
+	["44", "1", "19", "40"],
+	
+	["45", "1", "14", "23", "33"],
+	
+	["46","6", "15", "21", "29"],
+	
+	["47", "1", "12", "20", "30"],
+	
+	["48", "1", "10", "16", "24", "29"],
+	
+	["49", "5", "12"],
+	
+	["50","1", "16", "36"],
+	
+	["51","7", "31", "52"],
+	
+	["52", "15", "32"],
+	
+	["53","1", "27", "45"],
+	
+	["54", "7", "28", "50"],
+	
+	["55", "17", "41", "68"],
+	
+	["56", "17", "51", "77"],
+	
+	["57", "4", "12", "19", "25"],
+	
+	["58", "1", "7", "12", "22"],
+	
+	["59", "4", "10", "17"],
+	
+	["60", "1", "6", "12"],
+	
+	["61","6"],
+  
+	["62","1", "9"],
+	
+	["63","5"],
+  
+	["64","1", "10"],
+	
+	["65","1", "6"],
+	
+	["66","1", "8"],
+	
+	["67", "1", "13", "27"],
+	
+	["68","16", "43"],
+	
+	["69","9", "35"],
+	
+	["70","11", "40"],
+	
+	["71","11"],
+  
+	["72","1", "14"],
+	
+	["73","1", "20"],
+	
+	["74","18", "48"],
+	
+	["75","20"],
+  
+	["76","6", "26"],
+	
+	["77","20"],
+  
+	["78","1", "31"],
+  
+	["79","16"],
+  
+	["80","1"],
+  
+	["81","1"],
+  
+	["82","1"],
+  
+	["83","7", "35"],
+  
+	["85","1"],
+  
+	["86","1"],
+  
+	["87","16"],
+  
+	["89","1", "24"],
+  
+	["91","1"],
+  
+	["92","15"],
+  
+	["95","1"],
+  
+	["97","1"],
+  
+	["98","8"],
+  
+	["100","10"],
+  
+	["103","1"],
+  
+	["106","1"],
+  
+	["109","1"],
+  
+	["112","1"],
+  
+	["115","1"]
+];
 var column1 = Ti.UI.createPickerColumn();
 
 for(var i=0, ilen=surah.length; i<ilen; i++){
@@ -996,7 +1180,7 @@ var surahpicker = Ti.UI.createPicker({
   right: 5
 });
 
-var ayahpicker = Ti.UI.createPicker({
+/***var ayahpicker = Ti.UI.createPicker({
 	//columns: [column2],
   	selectionIndicator: true,
  	useSpinner: true, // required in order to use multi-column pickers with Android
@@ -1004,7 +1188,7 @@ var ayahpicker = Ti.UI.createPicker({
   	height: 100,
   	width: 200,
   	right: 5
-});	
+});	*/
 
 surahpicker.addEventListener("change",function(e){
 	console.log("surahChange: JSON.stringify(e): "+JSON.stringify(e));
@@ -1012,7 +1196,7 @@ surahpicker.addEventListener("change",function(e){
 	surahvalue.text = surahname;
 	
 	// set for ayah picker	
-for(j=0;j<surah.length;j++){
+for(j=0; j<surah.length; j++){
 		if(surah[j].name == surahvalue.text)
 		{var count = surah[j].count;}
 		console.log("surahChange: count: "+count);
@@ -1021,22 +1205,41 @@ for(j=0;j<surah.length;j++){
 if (surahname == "al-Fatihah") {
 	console.log(Page[0][1]);
 	
-	var fatihahPickerColumn = Ti.UI.createPickerColumn();
+	var fatihahPicker = Ti.UI.createPicker({
+  	selectionIndicator: true,
+ 	useSpinner: true, // required in order to use multi-column pickers with Android
+ 	top:100,
+  	height: 100,
+  	width: 200,
+  	right: 5
+});	
+	fatihahPickerColumn = Ti.UI.createPickerColumn();
+
 	for (var i = 0; i <= Page.length; i++) {
 		var fatihahAyahRow = Ti.UI.createPickerRow();
 		var fatihahLabel = Ti.UI.createLabel({
-			text: Page[0][1]
+			text: Page[0][i]
 		});
 	fatihahAyahRow.add(fatihahLabel);	
 	fatihahPickerColumn.addRow(fatihahAyahRow);
 	}
-	ayahpicker.add(fatihahPickerColumn);
+	fatihahPicker.add(fatihahPickerColumn);
+	win.add(fatihahPicker);
 	
 } else if (surahname == "al-Baqarah") {
 	//console.log("Baqarah");
-	
+	var baqarahPicker = Ti.UI.createPicker({
+	//columns: [column2],
+  	selectionIndicator: true,
+ 	useSpinner: true, // required in order to use multi-column pickers with Android
+ 	top:100,
+  	height: 100,
+  	width: 200,
+  	right: 5
+});	
+	var baqarahPickerColumn = Ti.UI.createPickerColumn();
 	for (var i = 0; i <= Page.length; i++) {
-		var baqarahPickerColumn = Ti.UI.createPickerColumn();
+		
 		var baqarahAyahRow = Ti.UI.createPickerRow();
 		/****I am going to see if using a label inside of the row will allow me to display all
 		 * the verse numbers in that specific surah. The Page variable contains many arrays of
@@ -1047,10 +1250,31 @@ if (surahname == "al-Fatihah") {
   	baqarahAyahRow.add(baqarahLabel);
 	baqarahPickerColumn.addRow(baqarahAyahRow);	
 	}
-	ayahpicker.add(baqarahPickerColumn);
-
+	baqarahPicker.add(baqarahPickerColumn);
+	win.add(baqarahPicker);
+	
 } else if (surahname == "Al-Imran") {
-	console.log(Page[4][1]  );
+	var baqarahPicker = Ti.UI.createPicker({
+	//columns: [column2],
+  	selectionIndicator: true,
+ 	useSpinner: true, // required in order to use multi-column pickers with Android
+ 	top:100,
+  	height: 100,
+  	width: 200,
+  	right: 5
+});	
+	var baqarahPickerColumn = Ti.UI.createPickerColumn();
+	for (var i = 0; i <= Page.length; i++) {
+		
+		var baqarahAyahRow = Ti.UI.createPickerRow();
+		var baqarahLabel = Ti.UI.createLabel({
+	    text: Page[1][i]
+	  });
+  	baqarahAyahRow.add(baqarahLabel);
+	baqarahPickerColumn.addRow(baqarahAyahRow);	
+	}
+	baqarahPicker.add(baqarahPickerColumn);
+	win.add(baqarahPicker);
 };
 
 
@@ -1156,7 +1380,7 @@ var surahvalue = Ti.UI.createLabel({
 
 	
 win.add(surahpicker);
-win.add(ayahpicker);
+//win.add(ayahpicker);
 win.add(surahvalue);
 win.add(ayahvalue);
 
